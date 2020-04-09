@@ -6,7 +6,8 @@ email_address,covid19_patient_survey,,text,"Email address",,,email,,,y,,y,,2,,,
 mobile_phone_number,covid19_patient_survey,,text,"Mobile phone number",,,phone,,,y,,y,,3,,,
 assigned_sex,covid19_patient_survey,,radio,"What sex were you assigned at birth?","Male, Male | Female, Female | Other, Other | Prefer_not_to_answer, Prefer not to answer",,,,,,,y,,4,,,
 pregnancy_status,covid19_patient_survey,,yesno,"Are you currently pregnant or is there a chance you could be pregnant during the next month?",,,,,,,"[assigned_sex] = 'Female'",y,,,,,
-gender_identity,covid19_patient_survey,,radio,"What is your current gender identity?","1, Transgender female (male to female) | 2, Transgender male (female to male) | 3, Gender queer | 4, Gender variant or gender non-conforming | 5, Female | 6, Male | 7, Self-identify | 8, Prefer not to answer",,,,,,,y,,5,,," @NONEOFTHEABOVE=8"
+gender_sex_match,covid19_patient_survey,,radio,"Does your current gender identity match your sex assigned at birth?","1, Yes | 0, No | 2, Prefer not to answer",,,,,,,y,,5,,,
+gender_identity,covid19_patient_survey,,radio,"What is your current gender identity?","1, Transgender female (male to female) | 2, Transgender male (female to male) | 3, Gender queer | 4, Gender variant or gender non-conforming | 5, Female | 6, Male | 7, Self-identify | 8, Prefer not to answer",,,,,,"[gender_sex_match] = '0'",y,,,,," @NONEOFTHEABOVE=8"
 gender_self_identity,covid19_patient_survey,,text,"Please specify gender self-identity",,,,,,,"[gender_identity] = '7'",y,,,,,
 age,covid19_patient_survey,,text,"How old are you (in years)?",,,integer,0,130,,,y,,6,,,
 weight,covid19_patient_survey,,text,"How much do you weigh (in pounds)?",,,integer,1,1000,,,y,,7,,,
