@@ -4,7 +4,7 @@ page1of4,covid19_patient_survey,"<div class=""rich-text-field-label""><div class
 fname_txt1,covid19_patient_survey,,descriptive,"Type your first name below:",,,,,,,,,,1,,,
 fname,covid19_patient_survey,,text,"<div class=""rich-text-field-label""></div>",,,,,,y,,y,LV,,,,
 lname_txt1,covid19_patient_survey,,descriptive,"Type your last name below:",,,,,,,,,,,,,
-lname,covid19_patient_survey,,text,"<div class=""rich-text-field-label""></div>",,,,,,y,,y,LV,,,," @CHARLIMIT=10"
+lname,covid19_patient_survey,,text,"<div class=""rich-text-field-label""></div>",,,,,,y,,y,LV,,,,
 dob,covid19_patient_survey,,text,"What is your date of birth?",,,date_mdy,,,y,,y,LV,2,,," @HIDEBUTTON"
 dob_range_warning,covid19_patient_survey,,descriptive,"<div class=""rich-text-field-label""><p><span style=""color: #e03e2d;"">Date of birth is outside expected range of 18-100 years old. Please check the date.</span></p></div>",,,,,,,"datediff ([dob], ""today"", ""y"",""mdy"", true) < 18 or datediff ([dob], ""today"", ""y"",""mdy"", true) > 100",,,,,,
 email,covid19_patient_survey,,text,"<div class=""rich-text-field-label""><p>What is your email address?</p></div>",,,email,,,y,,y,,3,,,
@@ -32,7 +32,7 @@ household_between_65_79,covid19_patient_survey,,text,"Number of 65-79 years old 
 household_over_80,covid19_patient_survey,,text,"Number of 80 years old or older people interacting in household",,,integer,0,100,,"[household_interaction_ages(8)] = '1'",y,,,,,
 residence_type,covid19_patient_survey,,radio,"What type of residence do you live in?","1, Dormitory | 2, Nursing home | 3, Apartment | 4, Single family home | 5, Other",,,,,,,y,,12,,,
 residence_other,covid19_patient_survey,,text,"Please describe ""Other"" residence type",,,,,,,"[residence_type] = '5'",y,,,,,
-patient_address,covid19_patient_survey,,notes,"What is your address? (For geocoding purposes only)",,,,,,,,y,,13,,," @CHARLIMIT=100"
+patient_address,covid19_patient_survey,,notes,"What is your address? (For geocoding purposes only)",,,,,,,,y,,13,,,
 page2of4,covid19_patient_survey,"<div class=""rich-text-field-label""><div class=""rich-text-field-label""><h3>COVID-19 related questions</h3></div></div>",descriptive,"<div class=""rich-text-field-label""><h3>Page 2 of 4</h3></div>",,,,,,,,,,,,,
 diagnosed,covid19_patient_survey,,yesno,"Have you been diagnosed with COVID-19?",,,,,,,,y,,14,,,
 testing_done,covid19_patient_survey,,yesno,"Were you tested for COVID-19?",,,,,,,,y,,15,,,
@@ -69,10 +69,10 @@ social_profile,covid19_patient_survey,,radio,"Describe your usual level of socia
 practicing_distancing,covid19_patient_survey,,radio,"How would you rate your compliance on a scale of 1-5 about social distancing measures as recommended by CDC? ( 1 being not following guidelines to 5 being following all guidelines)","1, 1 | 2, 2 | 3, 3 | 4, 4 | 5, 5",,,,,,,y,RH,21,,,
 start_distancing,covid19_patient_survey,,text,"When did you start social distancing?",,,date_mdy,,,,"[practicing_distancing] > 1",y,,,,,
 start_distance_warning,covid19_patient_survey,,descriptive,"<div class=""rich-text-field-label""><p><span style=""color: #e03e2d;"">Date for start of social distancing is set to the future. Please check the date.</span></p></div>",,,,,,,"datediff ([start_distancing], ""today"", ""d"",""mdy"", true)<0",,,,,,
-diseases_list,covid19_patient_survey,,checkbox,"Has your doctor or any medical provider ever told you that you have any of the following diseases? (check all that apply)","1, Lung disease | 2, Heart disease | 3, Hypertension/ high blood pressure | 4, Hyperlipidemia/ hypercholesterolemia | 5, Anemia | 6, Liver Disease | 7, Diabetes | 8, Obesity | 9, Joint Diseases | 10, Inflammatory bowel disease | 11, Cancer | 12, Cystic Fibrosis | 13, Chronic Kidney Disease | 14, Neurological disorder | 15, Dementia | 16, Other | 17, None of the above",,,,,,,y,,22,,," @NONEOFTHEABOVE=17"
+diseases_list,covid19_patient_survey,,checkbox,"Has your doctor or any medical provider ever told you that you have any of the following diseases? (check all that apply)","1, Lung disease | 2, Heart disease | 3, Hypertension/ high blood pressure | 4, Hyperlipidemia/ hypercholesterolemia/ high cholesterol | 5, Anemia | 6, Liver Disease | 7, Diabetes | 8, Obesity | 9, Joint Diseases | 10, Inflammatory bowel disease | 11, Cancer | 12, Cystic Fibrosis | 13, Chronic Kidney Disease | 14, Neurological disorder | 15, Dementia/Alzheimer's disease | 16, Other | 17, None of the above",,,,,,,y,,22,,," @NONEOFTHEABOVE=17"
 lung_disease,covid19_patient_survey,,radio,"What type of lung disease?","1, Asthma | 2, Chronic obstructive pulmonary disease (COPD) | 3, Idiopathic pulmonary fibrosis | 4, Bronchtiectasis | 5, Alpha-1 antitrypsin deficency | 6, Other lung disorder",,,,,,"[diseases_list(1)] = '1'",y,,,,,
 another_lung_disease,covid19_patient_survey,,text,"Please specify which other lung disorder you were diagnosed with",,,,,,,"[lung_disease] = '6'",y,,,,,
-heart_disease_type,covid19_patient_survey,,checkbox,"Which type of heart disease do you have? (check all that apply)","1, Congenital Heart disease | 2, Coronary artery disease/ history of myocardial infarction | 3, Congestive heart failure | 4, Other",,,,,,"[diseases_list(2)] = '1'",y,,,,,
+heart_disease_type,covid19_patient_survey,,checkbox,"Which type of heart disease do you have? (check all that apply)","1, Congenital Heart disease | 2, Coronary artery disease or history of heart attack | 3, Congestive heart failure | 4, Other",,,,,,"[diseases_list(2)] = '1'",y,,,,,
 heart_disease_type_other,covid19_patient_survey,,text,"Please list ""other"" type of heart disease",,,,,,,"[heart_disease_type(4)] = '1'",,,,,,
 diabetes_type,covid19_patient_survey,,radio,"Diabetes type","1, Type 1 | 2, Type 2",,,,,,"[diseases_list(7)] = '1'",y,,,,,
 arthritis_type,covid19_patient_survey,,radio,"What type of joint disease?","1, Rheumatoid arthritis | 2, Osteoarthritis | 3, Other",,,,,,"[diseases_list(9)] = '1'",y,,,,,
@@ -91,61 +91,73 @@ immune_related_conditions,covid19_patient_survey,,checkbox,"Have you ever been d
 autoimmune_dx,covid19_patient_survey,,checkbox,"What autoimmune condition have you been diagnosed with?","1, thyroid | 2, lupus | 3, multiple sclerosis | 4, cytopenia | 5, colitis/inflammatory bowel disease | 6, other",,,,,,"[immune_related_conditions(1)] = '1'",y,,,,,
 other_autoimmune_dx,covid19_patient_survey,,text,"What other autoimmune condition have you been diagnosed with?",,,,,,,"[autoimmune_dx(6)] = '1'",y,,,,,
 inflammatory_dx,covid19_patient_survey,,text,"What inflammatory condition have you been diagnosed with?",,,,,,,"[immune_related_conditions(2)] = '1'",y,,,,,
-meds_taken,covid19_patient_survey,,checkbox,"Are you currently taking any of the following (at least once a week) ? (Check all that apply)","1, Conventional nonsteroidal anti-inflammatory agents NSAIDS (aspirin, celecoxib, diclofenac (Cambia, Cataflam, Voltaren), diflunisal, etodolac, ibuprofen (Motrin, Advil), indomethacin (Indocin), ketoprofen, ketorolac, nambumetone, naproxen (Aleve, Anaprox, Naprelan, Naprosyn), oxaprozin (Daypro), piroxicam (Feldene), salsalate (Disalate), sulidnac, tolmetin) | 2, Acetaminophen (Benadryl, Excedrin, Robitussin, Sinutab, Sudafed, Tylenol, Vicks, and others) | 3, Asthma Meds (bronchodilator Ventolin,albuterol) | 4, Corticosteroids(not inhaled), eg. Prednisone | 5, Inhaled corticosteroids | 6, Inhaled Bronchodialators | 7, Nerve pain medication, Gabapetin | 8, Diabetic medication,Metformin | 9, Anti-TNF medications (infliximab, adalimumab, certolizumab, golimumab, etanercept, others) | 10, Blood Thinning Medications (Eliquis, Xarelto, Coumadin, Warfarin, etc.) | 11, ACE inhibitors for the treatment of hypertension (Benazepril, Captopril, Fosinopril, Lisinopril, etc.) | 12, A statin to lower cholesterol (such as atorvastatin or simvastatin) | 13, Angiotensin Receptor Blockers forhypertension (Edarbi, Atacand, Eprosartan, Avapro, etc.) | 14, JAK Inhibitors (Baricitinib, ruxolitinib, fedratinib, tofacitinib) | 15, Hydroxychloroquine | 16, IL-6 pathway inhibitors (sarilumab,tocilizumab, siltuximab, others) | 17, Thyroid medication levothryroxyne | 18, A beta-blocker to lower blood pressure (metoprolol, atenolol, tramadol, etc.) | 19, Other (prescribed/non-prescribed/vitamins or supplements) | 20, None of the above",,,,,,,y,,25,,," @NONEOFTHEABOVE=20"
+meds_taken,covid19_patient_survey,,checkbox,"Are you currently taking any of the following daily, several times a week or at least once a week? (Check all that apply)","21, Aspirin, with or without a prescription. | 1, Non-steroidal anti-inflammatory agents (NSAIDS) with or without a prescription: (eg. ibuprofen (Motrin, Advil), naproxen (Naprosyn, Aleve, Anaprox, Naprelan), diclofenac (Cambia, Cataflam, Voltaren, Zipsor), indomethacin (Indocin), diflunisal, etodolac,  ketoprofen, ketorolac, nambumetone, oxaprozin (Daypro), piroxicam (Feldene), salsalate (Disalate), sulidnac, tolmetin, celecoxib (Celebrex) | 2, Acetaminophen (Tylenol and others) | 4, Oral corticosteroids (eg. Prednisone) | 5, Inhaled corticosteroids (eg. fluticasone (Flovent), beclomethasone (QVar), etc ) | 6, Inhaled bronchodialators (eg. albuterol) | 3, Other Asthma Medications | 7, Nerve pain medication (eg. gabapetin) | 8, Diabetes medication | 9, Anti-TNF medications (infliximab, adalimumab, certolizumab, golimumab, etanercept, others) | 16, IL-6 pathway inhibitors (sarilumab,tocilizumab, siltuximab, others) | 15, Conventional disease-modifying anti-rheumatic drugs (DMARDs) (eg. cyclosporin, cyclophosphamide, hydroxychloroquine, leflunomide, methotrexate, mycophenolate, sulfasalazine) | 14, JAK Inhibitors (Baricitinib, ruxolitinib, fedratinib, tofacitinib) | 10, Blood thinning medication (eg. warfarin (Coumadin), heparin, enoxaparin (Lovenox), apixaban (Eliquis), rivaroxaban (Xarelto), etc) | 22, Platelet inhibitors (eg. clopidogrel (Plavix), prasugrel (Effient), ticagrelor (Brilinta), etc.) | 11, Blood pressure medication: ACE inhibitors (eg. benazepril, captopril, enalapril, fosinopril, lisinopril, etc.) | 13, Blood pressure medication: Angiotensin Receptor Blockers (eg. losartan, valsartan, irbesartan, candesartan, telmisartan, Olmesartan, etc) | 18, Blood pressure medication: beta-blockers (eg. metoprolol, atenolol, carvedilol, etc.) | 23, Blood pressure medication: others | 12, Cholesterol medication: Statins (eg. atorvastatin, rosuvastatin, simvastatin, pravastatin, lovastatin, fluvastatin, pitavastatin) | 24, Cholesterol medication: others (ezetimibe, fenofibrate, etc) | 17, Thyroid medication (eg. levothryroxine, Synthroid) | 19, Other (prescribed/non-prescribed/vitamins or supplements) | 20, None of the above",,,,,,,y,,25,,," @NONEOFTHEABOVE=20"
+aspirin_daily,covid19_patient_survey,,yesno,"Do you take aspirin daily?",,,,,,,"[meds_taken(21)] = '1'",y,,,,,
+aspirin_as_prescribed,covid19_patient_survey,,yesno,"Do you take aspirin as prescribed?",,,,,,,"[meds_taken(21)] = '1'",y,,,,,
+aspirin_num_doses,covid19_patient_survey,,text,"How many doses of aspirin daily?",,,,,,,"[meds_taken(21)] = '1'",,,,,," @CHARLIMIT=""30"""
 nsaids_daily,covid19_patient_survey,,yesno,"Do you take conventional nonsteroidal anti-inflammatory agents (NSAIDS) daily?",,,,,,,"[meds_taken(1)] = '1'",y,,,,,
 nsaids_as_prescribed,covid19_patient_survey,,yesno,"Do you take conventional nonsteroidal anti-inflammatory agents (NSAIDS) as prescribed?",,,,,,,"[meds_taken(1)] = '1'",y,,,,,
-nsaids_num_doses,covid19_patient_survey,,text,"How many doses of conventional nonsteroidal anti-inflammatory agents (NSAIDS) daily?",,,,,,,"[meds_taken(1)] = '1'",,,,,,
-acetamin_daily,covid19_patient_survey,,yesno,"Do you take acetaminophen (Benadryl, Excedrin, Robitussin, Sinutab, Sudafed, Tylenol, Vicks, and others) daily?",,,,,,,"[meds_taken(2)] = '1'",y,,,,,
+nsaids_num_doses,covid19_patient_survey,,text,"How many doses of conventional nonsteroidal anti-inflammatory agents (NSAIDS) daily?",,,,,,,"[meds_taken(1)] = '1'",,,,,," @CHARLIMIT=""30"""
+acetamin_daily,covid19_patient_survey,,yesno,"Do you take acetaminophen (Tylenol and others) daily?",,,,,,,"[meds_taken(2)] = '1'",y,,,,,
 acetamin_as_prescribed,covid19_patient_survey,,yesno,"Do you take acetaminophen as prescribed?",,,,,,,"[meds_taken(2)] = '1'",y,,,,,
-acetamin_num_doses,covid19_patient_survey,,text,"How many doses of Acetaminophen daily?",,,,,,,"[meds_taken(2)] = '1'",,,,,,
-asthma_meds_daily,covid19_patient_survey,,yesno,"Do you take asthma meds daily?",,,,,,,"[meds_taken(3)] = '1'",y,,,,,
-asthma_meds_as_prescribed,covid19_patient_survey,,yesno,"Do you take asthma meds as prescribed?",,,,,,,"[meds_taken(3)] = '1'",y,,,,,
-asthma_meds_num_doses,covid19_patient_survey,,text,"How many doses of asthma meds daily?",,,,,,,"[meds_taken(3)] = '1'",,,,,,
-cortico_daily,covid19_patient_survey,,yesno,"Do you take corticosteroids daily?",,,,,,,"[meds_taken(4)] = '1'",y,,,,,
-cortico_as_prescribed,covid19_patient_survey,,yesno,"Do you take corticosteroids as prescribed?",,,,,,,"[meds_taken(4)] = '1'",y,,,,,
-cortico_num_doses,covid19_patient_survey,,text,"How many doses of corticosteroids daily?",,,,,,,"[meds_taken(4)] = '1'",,,,,,
-inh_cortico_daily,covid19_patient_survey,,yesno,"Do you take inhaled corticosteroids daily?",,,,,,,"[meds_taken(5)] = '1'",y,,,,,
+acetamin_num_doses,covid19_patient_survey,,text,"How many doses of Acetaminophen daily?",,,,,,,"[meds_taken(2)] = '1'",,,,,," @CHARLIMIT=""30"""
+cortico_daily,covid19_patient_survey,,yesno,"Do you take oral corticosteroids daily?",,,,,,,"[meds_taken(4)] = '1'",y,,,,,
+cortico_as_prescribed,covid19_patient_survey,,yesno,"Do you take oral corticosteroids as prescribed?",,,,,,,"[meds_taken(4)] = '1'",y,,,,,
+cortico_num_doses,covid19_patient_survey,,text,"How many doses of oral corticosteroids daily?",,,,,,,"[meds_taken(4)] = '1'",,,,,," @CHARLIMIT=""30"""
+inh_cortico_daily,covid19_patient_survey,,yesno,"Do you take inhaled corticosteroids (eg. fluticasone (Flovent), beclomethasone (QVar), etc) daily?",,,,,,,"[meds_taken(5)] = '1'",y,,,,,
 inh_cortico_as_prescribed,covid19_patient_survey,,yesno,"Do you take  inhaled corticosteroids as prescribed?",,,,,,,"[meds_taken(5)] = '1'",y,,,,,
-inh_cortico_num_doses,covid19_patient_survey,,text,"How many doses of  inhaled corticosteroids daily?",,,,,,,"[meds_taken(5)] = '1'",,,,,,
-dilators_daily,covid19_patient_survey,,yesno,"Do you take  inhaled bronchodilators daily?",,,,,,,"[meds_taken(6)] = '1'",y,,,,,
+inh_cortico_num_doses,covid19_patient_survey,,text,"How many doses of  inhaled corticosteroids daily?",,,,,,,"[meds_taken(5)] = '1'",,,,,," @CHARLIMIT=""30"""
+dilators_daily,covid19_patient_survey,,yesno,"Do you take  inhaled bronchodilators (eg. albuterol) daily?",,,,,,,"[meds_taken(6)] = '1'",y,,,,,
 dilators_as_prescribed,covid19_patient_survey,,yesno,"Do you take inhaled bronchodilators as prescribed?",,,,,,,"[meds_taken(6)] = '1'",y,,,,,
-dilators_num_doses,covid19_patient_survey,,text,"How many doses of inhaled bronchodilators daily?",,,,,,,"[meds_taken(6)] = '1'",,,,,,
-nerve_med_daily,covid19_patient_survey,,yesno,"Do you take nerve pain medication (Gabapetin) daily?",,,,,,,"[meds_taken(7)] = '1'",y,,,,,
-nerve_med_as_prescribed,covid19_patient_survey,,yesno,"Do you take nerve pain medication (Gabapetin) as prescribed?",,,,,,,"[meds_taken(7)] = '1'",y,,,,,
-nerve_med_num_doses,covid19_patient_survey,,text,"How many doses of nerve pain medication (Gabapetin) daily?",,,,,,,"[meds_taken(7)] = '1'",,,,,,
-diabetic_daily,covid19_patient_survey,,yesno,"Do you take diabetic medication (Metformin) daily?",,,,,,,"[meds_taken(8)] = '1'",y,,,,,
-diabetic_as_prescribed,covid19_patient_survey,,yesno,"Do you take diabetic medication (Metformin) as prescribed?",,,,,,,"[meds_taken(8)] = '1'",y,,,,,
-diabetic_num_doses,covid19_patient_survey,,text,"How many doses of diabetic medication (Metformin)  daily?",,,,,,,"[meds_taken(8)] = '1'",,,,,,
+dilators_num_doses,covid19_patient_survey,,text,"How many doses of inhaled bronchodilators daily?",,,,,,,"[meds_taken(6)] = '1'",,,,,," @CHARLIMIT=""30"""
+asthma_meds_daily,covid19_patient_survey,,yesno,"Do you take other asthma meds daily?",,,,,,,"[meds_taken(3)] = '1'",y,,,,,
+asthma_meds_as_prescribed,covid19_patient_survey,,yesno,"Do you take other asthma meds as prescribed?",,,,,,,"[meds_taken(3)] = '1'",y,,,,,
+asthma_meds_num_doses,covid19_patient_survey,,text,"How many doses of other asthma meds daily?",,,,,,,"[meds_taken(3)] = '1'",,,,,," @CHARLIMIT=""30"""
+nerve_med_daily,covid19_patient_survey,,yesno,"Do you take nerve pain medication (gabapentin) daily?",,,,,,,"[meds_taken(7)] = '1'",y,,,,,
+nerve_med_as_prescribed,covid19_patient_survey,,yesno,"Do you take nerve pain medication (gabapentin) as prescribed?",,,,,,,"[meds_taken(7)] = '1'",y,,,,,
+nerve_med_num_doses,covid19_patient_survey,,text,"How many doses of nerve pain medication (gabapentin) daily?",,,,,,,"[meds_taken(7)] = '1'",,,,,," @CHARLIMIT=""30"""
+diabetic_daily,covid19_patient_survey,,yesno,"Do you take diabetic medication daily?",,,,,,,"[meds_taken(8)] = '1'",y,,,,,
+diabetic_as_prescribed,covid19_patient_survey,,yesno,"Do you take diabetic medication as prescribed?",,,,,,,"[meds_taken(8)] = '1'",y,,,,,
+diabetic_num_doses,covid19_patient_survey,,text,"How many doses of diabetic medication daily?",,,,,,,"[meds_taken(8)] = '1'",,,,,," @CHARLIMIT=""30"""
 anti_tnf_daily,covid19_patient_survey,,yesno,"Do you take anti-TNF medications (infliximab, adalimumab, certolizumab, golimumab, etanercept, others) daily?",,,,,,,"[meds_taken(9)] = '1'",y,,,,,
 anti_tnf_as_prescribed,covid19_patient_survey,,yesno,"Do you take conventional anti-TNF medications (infliximab, adalimumab, certolizumab, golimumab, etanercept, others) as prescribed?",,,,,,,"[meds_taken(9)] = '1'",y,,,,,
-anti_tnf_num_doses,covid19_patient_survey,,text,"How many doses of anti-TNF medications (infliximab, adalimumab, certolizumab, golimumab, etanercept, others) daily?",,,,,,,"[meds_taken(9)] = '1'",,,,,,
-thinner_daily,covid19_patient_survey,,yesno,"Do you take blood thinning medications (Eliquis, Xarelto, Coumadin, Warfarin, etc.) daily?",,,,,,,"[meds_taken(10)] = '1'",y,,,,,
-thinner_as_prescribed,covid19_patient_survey,,yesno,"Do you take conventional blood thinning medications (Eliquis, Xarelto, Coumadin, Warfarin, etc.)as prescribed?",,,,,,,"[meds_taken(10)] = '1'",y,,,,,
-thinner_num_doses,covid19_patient_survey,,text,"How many doses of blood thinning medications (Eliquis, Xarelto, Coumadin, Warfarin, etc.)daily?",,,,,,,"[meds_taken(10)] = '1'",,,,,,
-ace_inhib_daily,covid19_patient_survey,,yesno,"Do you take ACE inhibitors for the treatment of hypertension (Benazepril, Captopril, Fosinopril, Lisinopril, etc.) daily?",,,,,,,"[meds_taken(11)] = '1'",y,,,,,
-ace_inhib_as_prescribed,covid19_patient_survey,,yesno,"Do you take ACE inhibitors for the treatment of hypertension (Benazepril, Captopril, Fosinopril, Lisinopril, etc.) as prescribed?",,,,,,,"[meds_taken(11)] = '1'",y,,,,,
-ace_inhib_num_doses,covid19_patient_survey,,text,"How many doses of ACE inhibitors for the treatment of hypertension (Benazepril, Captopril, Fosinopril, Lisinopril, etc.) daily?",,,,,,,"[meds_taken(11)] = '1'",,,,,,
-statin_daily,covid19_patient_survey,,yesno,"Do you take a statin to lower cholesterol (such as atorvastatin or simvastatin) daily?",,,,,,,"[meds_taken(12)] = '1'",y,,,,,
-statin_as_prescribed,covid19_patient_survey,,yesno,"Do you take a statin to lower cholesterol (such as atorvastatin or simvastatin) as prescribed?",,,,,,,"[meds_taken(12)] = '1'",y,,,,,
-statin_num_doses,covid19_patient_survey,,text,"How many doses of a statin to lower cholesterol (such as atorvastatin or simvastatin)  daily?",,,,,,,"[meds_taken(12)] = '1'",,,,,,
-angiotensin_daily,covid19_patient_survey,,yesno,"Do you take angiotensin receptor blockers for hypertension (Edarbi, Atacand, Eprosartan, Avapro, etc.) daily?",,,,,,,"[meds_taken(13)] = '1'",y,,,,,
-angiotensin_as_prescribed,covid19_patient_survey,,yesno,"Do you take angiotensin receptor blockers for hypertension (Edarbi, Atacand, Eprosartan, Avapro, etc.)as prescribed?",,,,,,,"[meds_taken(13)] = '1'",y,,,,,
-angiotensin_num_doses,covid19_patient_survey,,text,"How many doses of angiotensin receptor blockers for hypertension (Edarbi, Atacand, Eprosartan, Avapro, etc.)daily?",,,,,,,"[meds_taken(13)] = '1'",,,,,,
-jak_daily,covid19_patient_survey,,yesno,"Do you take JAK Inhibitors (Baricitinib, ruxolitinib, fedratinib, tofacitinib) daily?",,,,,,,"[meds_taken(14)] = '1'",y,,,,,
-jak_as_prescribed,covid19_patient_survey,,yesno,"Do you take JAK Inhibitors (Baricitinib, ruxolitinib, fedratinib, tofacitinib) as prescribed?",,,,,,,"[meds_taken(14)] = '1'",y,,,,,
-jak_num_doses,covid19_patient_survey,,text,"How many doses of JAK Inhibitors (Baricitinib, ruxolitinib, fedratinib, tofacitinib) daily?",,,,,,,"[meds_taken(14)] = '1'",,,,,,
-hydroxychlor_daily,covid19_patient_survey,,yesno,"Do you take Hydroxychloroquine daily?",,,,,,,"[meds_taken(15)] = '1'",y,,,,,
-hydroxychlor_as_prescribed,covid19_patient_survey,,yesno,"Do you take Hydroxychloroquine as prescribed?",,,,,,,"[meds_taken(15)] = '1'",y,,,,,
-hydroxychlor_num_doses,covid19_patient_survey,,text,"How many doses of Hydroxychloroquine daily?",,,,,,,"[meds_taken(15)] = '1'",,,,,,
+anti_tnf_num_doses,covid19_patient_survey,,text,"How many doses of anti-TNF medications (infliximab, adalimumab, certolizumab, golimumab, etanercept, others) daily?",,,,,,,"[meds_taken(9)] = '1'",,,,,," @CHARLIMIT=""30"""
 il6_daily,covid19_patient_survey,,yesno,"Do you take IL-6 pathway inhibitors (sarilumab,tocilizumab, siltuximab, others) daily?",,,,,,,"[meds_taken(16)] = '1'",y,,,,,
 il6_as_prescribed,covid19_patient_survey,,yesno,"Do you take IL-6 pathway inhibitors (sarilumab,tocilizumab, siltuximab, others) as prescribed?",,,,,,,"[meds_taken(16)] = '1'",y,,,,,
-il6_num_doses,covid19_patient_survey,,text,"How many doses of IL-6 pathway inhibitors (sarilumab,tocilizumab, siltuximab, others) daily?",,,,,,,"[meds_taken(16)] = '1'",,,,,,
-thyroid_med_daily,covid19_patient_survey,,yesno,"Do you take thyroid medication levothryroxyne daily?",,,,,,,"[meds_taken(17)] = '1'",y,,,,,
-thyroid_med_as_prescribed,covid19_patient_survey,,yesno,"Do you take thyroid medication levothryroxyneas prescribed?",,,,,,,"[meds_taken(17)] = '1'",y,,,,,
-thyroid_med_doses,covid19_patient_survey,,text,"How many doses of thyroid medication levothryroxyne daily?",,,,,,,"[meds_taken(17)] = '1'",,,,,,
-beta_blocker_daily,covid19_patient_survey,,yesno,"Do you take a beta-blocker to lower blood pressure (metoprolol, atenolol, tramadol, ...) daily?",,,,,,,"[meds_taken(18)] = '1'",y,,,,,
-beta_blocker_as_prescribed,covid19_patient_survey,,yesno,"Do you take a beta-blocker to lower blood pressure (metoprolol, atenolol, tramadol, ...)  as prescribed?",,,,,,,"[meds_taken(18)] = '1'",y,,,,,
-beta_blocker_num_doses,covid19_patient_survey,,text,"How many doses of a beta-blocker to lower blood pressure (metoprolol, atenolol, tramadol, ...)  daily?",,,,,,,"[meds_taken(18)] = '1'",,,,,,
+il6_num_doses,covid19_patient_survey,,text,"How many doses of IL-6 pathway inhibitors (sarilumab,tocilizumab, siltuximab, others) daily?",,,,,,,"[meds_taken(16)] = '1'",,,,,," @CHARLIMIT=""30"""
+hydroxychlor_daily,covid19_patient_survey,,yesno,"Do you take conventional disease-modifying anti-rheumatic drugs (DMARDs) (eg. cyclosporin, cyclophosphamide, hydroxychloroquine, leflunomide, methotrexate, mycophenolate, sulfasalazine) daily?",,,,,,,"[meds_taken(15)] = '1'",y,,,,,
+hydroxychlor_as_prescribed,covid19_patient_survey,,yesno,"Do you take conventional disease-modifying anti-rheumatic drugs (DMARDs) as prescribed?",,,,,,,"[meds_taken(15)] = '1'",y,,,,,
+hydroxychlor_num_doses,covid19_patient_survey,,text,"How many doses of conventional disease-modifying anti-rheumatic drugs (DMARDs) daily?",,,,,,,"[meds_taken(15)] = '1'",,,,,," @CHARLIMIT=""30"""
+jak_daily,covid19_patient_survey,,yesno,"Do you take JAK Inhibitors (Baricitinib, ruxolitinib, fedratinib, tofacitinib) daily?",,,,,,,"[meds_taken(14)] = '1'",y,,,,,
+jak_as_prescribed,covid19_patient_survey,,yesno,"Do you take JAK Inhibitors (Baricitinib, ruxolitinib, fedratinib, tofacitinib) as prescribed?",,,,,,,"[meds_taken(14)] = '1'",y,,,,,
+jak_num_doses,covid19_patient_survey,,text,"How many doses of JAK Inhibitors (Baricitinib, ruxolitinib, fedratinib, tofacitinib) daily?",,,,,,,"[meds_taken(14)] = '1'",,,,,," @CHARLIMIT=""30"""
+thinner_daily,covid19_patient_survey,,yesno,"Do you take blood thinning medications (eg. warfarin (Coumadin), heparin, enoxaparin (Lovenox), apixaban (Eliquis), rivaroxaban (Xarelto), etc) daily?",,,,,,,"[meds_taken(10)] = '1'",y,,,,,
+thinner_as_prescribed,covid19_patient_survey,,yesno,"Do you take conventional blood thinning medications as prescribed?",,,,,,,"[meds_taken(10)] = '1'",y,,,,,
+thinner_num_doses,covid19_patient_survey,,text,"How many doses of blood thinning medications daily?",,,,,,,"[meds_taken(10)] = '1'",,,,,," @CHARLIMIT=""30"""
+platelet_daily,covid19_patient_survey,,yesno,"Do you take platelet inhibitors (eg. clopidogrel (Plavix), prasugrel (Effient), ticagrelor (Brilinta), etc.) daily?",,,,,,,"[meds_taken(22)] = '1'",y,,,,,
+platelet_as_prescribed,covid19_patient_survey,,yesno,"Do you take platelet inhibitors (eg. clopidogrel (Plavix), prasugrel (Effient), ticagrelor (Brilinta), etc.) as prescribed?",,,,,,,"[meds_taken(22)] = '1'",y,,,,,
+platelet_num_doses,covid19_patient_survey,,text,"How many doses of platelet inhibitors (eg. clopidogrel (Plavix), prasugrel (Effient), ticagrelor (Brilinta), etc.) daily?",,,,,,,"[meds_taken(22)] = '1'",,,,,," @CHARLIMIT=""30"""
+ace_inhib_daily,covid19_patient_survey,,yesno,"Do you take ACE inhibitors (eg. benazepril, captopril, enalapril, fosinopril, lisinopril, etc.) daily?",,,,,,,"[meds_taken(11)] = '1'",y,,,,,
+ace_inhib_as_prescribed,covid19_patient_survey,,yesno,"Do you take ACE inhibitors as prescribed?",,,,,,,"[meds_taken(11)] = '1'",y,,,,,
+ace_inhib_num_doses,covid19_patient_survey,,text,"How many doses of ACE inhibitors daily?",,,,,,,"[meds_taken(11)] = '1'",,,,,," @CHARLIMIT=""30"""
+angiotensin_daily,covid19_patient_survey,,yesno,"Do you take angiotensin receptor blockers for hypertension (eg. losartan, valsartan, irbesartan, candesartan, telmisartan, Olmesartan, etc) daily?",,,,,,,"[meds_taken(13)] = '1'",y,,,,,
+angiotensin_as_prescribed,covid19_patient_survey,,yesno,"Do you take angiotensin receptor blockers for hypertension as prescribed?",,,,,,,"[meds_taken(13)] = '1'",y,,,,,
+angiotensin_num_doses,covid19_patient_survey,,text,"How many doses of angiotensin receptor blockers for hypertension daily?",,,,,,,"[meds_taken(13)] = '1'",,,,,," @CHARLIMIT=""30"""
+beta_blocker_daily,covid19_patient_survey,,yesno,"Do you take a beta-blocker to lower blood pressure (eg. metoprolol, atenolol, carvedilol, etc.) daily?",,,,,,,"[meds_taken(18)] = '1'",y,,,,,
+beta_blocker_as_prescribed,covid19_patient_survey,,yesno,"Do you take a beta-blocker to lower blood pressure (eg. metoprolol, atenolol, carvedilol, etc.) as prescribed?",,,,,,,"[meds_taken(18)] = '1'",y,,,,,
+beta_blocker_num_doses,covid19_patient_survey,,text,"How many doses of a beta-blocker to lower blood pressure (eg. metoprolol, atenolol, carvedilol, etc.) daily?",,,,,,,"[meds_taken(18)] = '1'",,,,,," @CHARLIMIT=""30"""
+bpmed_other_daily,covid19_patient_survey,,yesno,"Do you take other blood pressure medications daily?",,,,,,,"[meds_taken(23)] = '1'",y,,,,,
+bpmed_other_as_prescribed,covid19_patient_survey,,yesno,"Do you take other blood pressure medications as prescribed?",,,,,,,"[meds_taken(23)] = '1'",y,,,,,
+bpmed_other_num_doses,covid19_patient_survey,,text,"How many doses of other blood pressure medication daily?",,,,,,,"[meds_taken(23)] = '1'",,,,,," @CHARLIMIT=""30"""
+statin_daily,covid19_patient_survey,,yesno,"Do you take a statin to lower cholesterol (eg. atorvastatin, rosuvastatin, simvastatin, pravastatin, lovastatin, fluvastatin, pitavastatin) daily?",,,,,,,"[meds_taken(12)] = '1'",y,,,,,
+statin_as_prescribed,covid19_patient_survey,,yesno,"Do you take a statin to lower cholesterol (eg. atorvastatin, rosuvastatin, simvastatin, pravastatin, lovastatin, fluvastatin, pitavastatin) as prescribed?",,,,,,,"[meds_taken(12)] = '1'",y,,,,,
+statin_num_doses,covid19_patient_survey,,text,"How many doses of a statin to lower cholesterol (eg. atorvastatin, rosuvastatin, simvastatin, pravastatin, lovastatin, fluvastatin, pitavastatin) daily?",,,,,,,"[meds_taken(12)] = '1'",,,,,," @CHARLIMIT=""30"""
+cholmed_oth_daily,covid19_patient_survey,,yesno,"Do you take other cholesterol medications (ezetimibe, fenofibrate, etc) daily?",,,,,,,"[meds_taken(24)] = '1'",y,,,,,
+cholmed_oth_as_prescribed,covid19_patient_survey,,yesno,"Do you take other cholesterol medications as prescribed?",,,,,,,"[meds_taken(24)] = '1'",y,,,,,
+cholmed_oth_num_doses,covid19_patient_survey,,text,"How many doses of other cholesterol medications daily?",,,,,,,"[meds_taken(24)] = '1'",,,,,," @CHARLIMIT=""30"""
+thyroid_med_daily,covid19_patient_survey,,yesno,"Do you take thyroid medication (eg. levothryroxine, Synthroid) daily?",,,,,,,"[meds_taken(17)] = '1'",y,,,,,
+thyroid_med_as_prescribed,covid19_patient_survey,,yesno,"Do you take thyroid medication (eg. levothryroxine, Synthroid) as prescribed?",,,,,,,"[meds_taken(17)] = '1'",y,,,,,
+thyroid_med_doses,covid19_patient_survey,,text,"How many doses of thyroid medication (eg. levothryroxine, Synthroid) daily?",,,,,,,"[meds_taken(17)] = '1'",,,,,," @CHARLIMIT=""30"""
 drug_head,covid19_patient_survey,,descriptive,"<div class=""rich-text-field-label""><div class=""rich-text-field-label""> <h3><span style=""background-color: #fbeeb8;"">Please describe information on other drugs below</span></h3> </div></div>",,,,,,,"[meds_taken(19)] = '1'",,,,,,
 other_drug_types,covid19_patient_survey,,checkbox,"What other classes of drugs do you regularly take?","1, Prescribed | 2, Non-Prescribed | 3, Vitamins/Supplements",,,,,,"[meds_taken(19)] = '1'",y,,,,,
 other_drug_1,covid19_patient_survey,,text,"Other drug/vitamin/supplement name",,,,,,,"[meds_taken(19)] = '1'",y,,,,,
@@ -185,7 +197,7 @@ rec_drug_frequency,covid19_patient_survey,,dropdown,"How often do you take recre
 smoking,covid19_patient_survey,,radio,"Do you smoke?","1, I have never smoked | 2, I have never smoked regularly | 3, I used to smoke but I quit | 4, I smoke only rarely | 5, I smoke every day",,,,,,,y,,31,,,
 smoking_daily_avg,covid19_patient_survey,,text,"How many cigarettes do you smoke a day on average?",,,integer,1,200,,"[smoking] = '5'",y,,,,,
 vaping,covid19_patient_survey,,radio,"Do you vape?","1, I have never vaped | 2, I have never vaped regularly | 3, I used to vape, but I quit | 4, I vape only rarely | 5, I vape very day",,,,,,,y,,32,,,
-education_level,covid19_patient_survey,,radio,"What is your education level?","1, Primary/elementary school | 2, Vocational school | 3, High school | 4, College / Bachelor's degree | 5, Master's degree or higher",,,,,,,y,,33,,,
+education_level,covid19_patient_survey,,radio,"What is your education level?","1, Primary/elementary school | 2, Vocational school | 3, High school | 4, College/Bachelor's degree | 5, Master's degree or higher",,,,,,,y,,33,,,
 job_title,covid19_patient_survey,,text,"What is your job title?",,,,,,,,,,34,,,
 hazard_exposure,covid19_patient_survey,,checkbox,"Are you exposed to any particular hazards in your job?","1, Fumes | 2, Medical facilities | 3, Lead | 4, Asbestos | 5, Work that causes excessive sweat/dehydration/physical | 6, Other | 7, None of the above",,,,,,,y,,35,,," @NONEOFTHEABOVE=7"
 hazard_other,covid19_patient_survey,,notes,"Please describe the other hazards in your job",,,,,,,"[hazard_exposure(6)] = '1'",y,,,,,
