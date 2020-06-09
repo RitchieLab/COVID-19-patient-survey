@@ -26,6 +26,8 @@ Data dictionary and codebook files are provided in English and Spanish under the
  5. REDCap will display any errors or warnings associated with the data dictionary.
  6. If there are no errors, select the **Commit Changes** button to add the survey to your project.
  
+ ## REDCap survey 
+ 
  ![Page 1](/img/page1.png "Page1")
  ![Page 2](/img/page2.png "Page2")
  ![Page 3](/img/page3.png "Page3")
