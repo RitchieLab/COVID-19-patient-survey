@@ -8,6 +8,7 @@ The following languages are provided as pdfs in the language_pdfs directory:
  - Chinese
  - English
  - French
+ - German
  - Italian
  - Japanese
  - Korean
